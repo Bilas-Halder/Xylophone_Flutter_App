@@ -8,109 +8,42 @@ class XylophoneApp extends StatelessWidget {
     final player = AudioCache();
     player.play('note$audioNum.wav');
   }
+
+  Expanded buildKey(int audioNum, int colorNum){
+    return Expanded(
+      child: TextButton(
+        onPressed: (){
+          playSound(audioNum);
+        },
+        style: TextButton.styleFrom(
+          padding: EdgeInsets.zero,
+        ),
+        child: Container(
+          color: Colors.teal[colorNum],
+        ),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
       home: Scaffold(
+        appBar: AppBar(
+          title: Center(child: Text('Xylophone')),
+          backgroundColor: Colors.teal[400],
+        ),
         body: SafeArea(
           child: Center(
             child: Column(
               children: [
-                Expanded(
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(1);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[900],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(2);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[700],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(3);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[500],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(4);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[400],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(5);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[300],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(6);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[200],
-                    ),
-                  ),
-                ),
-                Expanded(
-                  flex: 1,
-                  child: TextButton(
-                    onPressed: (){
-                      playSound(7);
-                    },
-                    style: TextButton.styleFrom(
-                      padding: EdgeInsets.zero,
-                    ),
-                    child: Container(
-                      color: Colors.teal[100],
-                    ),
-                  ),
-                ),
+                buildKey(1,900),
+                buildKey(2,700),
+                buildKey(3,500),
+                buildKey(4,400),
+                buildKey(5,300),
+                buildKey(6,200),
+                buildKey(7,100),
               ],
             ),
           ),
